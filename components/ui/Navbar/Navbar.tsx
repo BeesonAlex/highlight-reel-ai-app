@@ -24,6 +24,9 @@ const Navbar = () => {
               <Logo />
             </Link>
             <nav className="space-x-2 ml-6 hidden lg:block">
+              <Link href="/editor" className={s.link}>
+                Editor
+              </Link>
               <Link href="/" className={s.link}>
                 Pricing
               </Link>

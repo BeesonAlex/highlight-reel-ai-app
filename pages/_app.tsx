@@ -10,6 +10,7 @@ import type { Database } from 'types_db';
 
 import 'styles/main.css';
 import 'styles/chrome-bug.css';
+import 'styles/VideoEditor.css';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const [supabaseClient] = useState(() =>
