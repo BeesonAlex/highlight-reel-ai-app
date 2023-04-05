@@ -19,6 +19,6 @@
     },
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/video.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/highlights.ts"],
   "exclude": ["node_modules"]
 }

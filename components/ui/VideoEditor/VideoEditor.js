@@ -11,7 +11,7 @@ import ZoomOut from '../../icons/ZoomOut'
 
 import { createFFmpeg, fetchFile } from '@ffmpeg/ffmpeg' // https://github.com/ffmpegwasm/ffmpeg.wasm/blob/master/docs/api.md
 
-export default function VideoEditor({ videoUrl, timings, setTimings }) {
+export default function VideoEditor({ videoUrl, timings, setTimings, fileUrl }) {
     // State and Refs for Zoom Levels
     const [zoomLevel, setZoomLevel] = useState(1);
     const [scrollPosition, setScrollPosition] = useState(0);
@@ -374,11 +374,12 @@ export default function VideoEditor({ videoUrl, timings, setTimings }) {
     // Event handler for Fetch Highlights button click
     // Return Video Hotspots/Highlights from API
     const fetchHighlights = async (video) => {
+        console.log(video)
         setHighlightsLoading(true)
         
     try {
       const response = await postVideoHotspots({
-        url: '/api/video',
+        url: '/api/highlights',
         data: video
       });
       setHighlights(response)
@@ -600,7 +601,7 @@ export default function VideoEditor({ videoUrl, timings, setTimings }) {
                 </div>
             </div>
             <div className='controls'>
-                <button title='Fetch highlights' className='trim-control margined' onClick={() => fetchHighlights(videoUrl)}>Fetch Highlights</button>
+                <button title='Fetch highlights' className='trim-control margined' onClick={() => fetchHighlights(fileUrl)}>Fetch Highlights</button>
             </div>
             <div className='controls'>
             {

@@ -1,8 +1,14 @@
 import { NextApiHandler } from 'next';
 import axios, { AxiosRequestConfig, AxiosResponse}  from 'axios';
 
-const GetVideoHotspots: NextApiHandler = async (req, res) => {
-    if (req.method === 'POST') {
+const getVideoHotspots: NextApiHandler = async (req, res) => {
+  const method = req.method;
+
+    if (method === 'GET') {
+      return res.status(200).json({ message: 'GET request received' });
+    }
+
+    if (method === 'POST') {
       const { video } = req.body;
   
       try {
@@ -39,4 +45,4 @@ const GetVideoHotspots: NextApiHandler = async (req, res) => {
     }
   };
   
-  export default GetVideoHotspots;
+  export default getVideoHotspots;
